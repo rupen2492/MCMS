@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: left;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .header span {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 400px;
+            background-color: #002855;
+            padding: 20px;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .content span {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .service-package {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .service-package button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .customer-details {
+            margin-bottom: 20px;
+        }
+
+        .customer-details span {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .payment-summary {
+            margin-bottom: 20px;
+        }
+
+        .payment-summary span {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .footer button {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .footer .add-address {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        @media (max-width: 480px) {
+            .header span {
+                font-size: 16px;
+            }
+
+            .content span {
+                font-size: 14px;
+            }
+
+            .footer button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span>Hi Rupen,</span>
+        <span>Order Details</span>
+    </div>
+
+    <div class="content">
+        <span>Air Condition Service (1 AC)</span>
+        <div class="service-package">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+        </div>
+
+        <div class="customer-details">
+            <span>Customer Details</span>
+            <span>Mobile Number</span>
+            <span>+91-9874563210 <a href="#" style="color: #00bfff;">Change</a></span>
+        </div>
+
+        <div class="payment-summary">
+            <span>
+                <span>Item Total</span>
+                <span>599 Rs.</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <button class="add-address">ADD ADDRESS and SLOT</button>
+    </div>
+</body>
+</html>
