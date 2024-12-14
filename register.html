@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <title>My Country My Services</title>
+    <style>
+        /* Responsive Design */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #042E6E;   
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .register-container {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .site-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .subheading {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .register-button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #042E6E;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .register-button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Query for Small Screens */
+        @media (max-width: 600px) {
+            .register-container {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .subheading {
+                font-size: 14px;
+            }
+
+            .register-button {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .footer {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="site-logo">MY COUNTRY MY SERVICES</h1>
+        </header>
+
+        <!-- Subheading -->
+        <div class="subheading">Register Yourself Here</div>
+
+        <!-- Registration Form -->
+        <form>
+            <!-- Name Input -->
+            <div class="input-group">
+                <label for="name">Enter Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+            </div>
+
+            <!-- Phone Number Input -->
+            <div class="input-group">
+                <label for="phone">Enter Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+            </div>
+
+            <!-- Email Input -->
+            <div class="input-group">
+                <label for="email">Enter Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+            </div>
+
+            <!-- Password Input -->
+            <div class="input-group">
+                <label for="password">Enter Password</label>
+                <input type="password" id="password" name="password" placeholder="Your Password" required>
+            </div>
+
+            <!-- Register Button -->
+            <a href="index.html">
+                <button type="submit" class="register-button">REGISTER</button>
+            </a>
+           
+        </form>
+
+        <!-- Footer -->
+        <div class="footer">
+            Already have an account? <a href="login.html">Login</a>
+        </div>
+    </div>
+</body>
+</html>
