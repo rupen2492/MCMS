@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #003366;
+            color: white;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #00bfff;
+        }
+
+        /* Table Styling */
+        .booking-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #002855;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .booking-table thead {
+            background-color: #00509e;
+            color: white;
+            font-size: 16px;
+        }
+
+        .booking-table th,
+        .booking-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #004080;
+        }
+
+        .booking-table tr:nth-child(even) {
+            background-color: #003366;
+        }
+
+        .booking-table tr:hover {
+            background-color: #004080;
+        }
+
+        /* Responsive Table for Mobile Screens */
+        @media (max-width: 768px) {
+            .booking-table,
+            .booking-table thead,
+            .booking-table tbody,
+            .booking-table th,
+            .booking-table td,
+            .booking-table tr {
+                display: block;
+            }
+
+            .booking-table thead {
+                display: none; /* Hide table header */
+            }
+
+            .booking-table tr {
+                margin-bottom: 15px;
+                border: 1px solid #00509e;
+                border-radius: 8px;
+            }
+
+            .booking-table td {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                font-size: 14px;
+                border-bottom: 1px solid #004080;
+            }
+
+            .booking-table td:last-child {
+                border-bottom: none;
+            }
+
+            .booking-table td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #00bfff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Booking Details -->
+    <h1>Hi Admin,</h1>
+    <h2>Booking Details</h2>
+
+    <!-- Table -->
+    <table class="booking-table">
+        <thead>
+            <tr>
+                <th>S. No.</th>
+                <th>Service</th>
+                <th>Service Type</th>
+                <th>Quantity</th>
+                <th>Customer Address</th>
+                <th>Customer Contact No.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="S. No.">01</td>
+                <td data-label="Service">Air Condition</td>
+                <td data-label="Service Type">Service</td>
+                <td data-label="Quantity">01</td>
+                <td data-label="Customer Address">Krishna Nagar</td>
+                <td data-label="Customer Contact No.">9999999999</td>
+            </tr>
+            <tr>
+                <td data-label="S. No.">02</td>
+                <td data-label="Service">Geyser</td>
+                <td data-label="Service Type">Service</td>
+                <td data-label="Quantity">01</td>
+                <td data-label="Customer Address">Krishna Nagar</td>
+                <td data-label="Customer Contact No.">9999999999</td>
+            </tr>
+            <tr>
+                <td data-label="S. No.">03</td>
+                <td data-label="Service">Plumber</td>
+                <td data-label="Service Type">Repair</td>
+                <td data-label="Quantity">01</td>
+                <td data-label="Customer Address">Krishna Nagar</td>
+                <td data-label="Customer Contact No.">9999999999</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

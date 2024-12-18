@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <title>My Country My Services</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #003366;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #002855;
+            padding: 20px;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .details {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .details span {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .summary {
+            margin-top: 20px;
+        }
+
+        .button-container {
+            margin-top: 30px;
+        }
+
+        .button-container button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+            .details span {
+                font-size: 12px;
+            }
+            .button-container button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="">
+        <h1>Thank You!</h1>
+        <p>Your booking has been confirmed for AC Service with Booking Id <strong>12456578</strong>.</p>
+        
+        <div class="details">
+            <span><strong>Customer Details</strong></span>
+            <span>Mobile Number</span>
+            <span>+91-9874563210 (Rupen)</span>
+        </div>
+
+        <div class="summary">
+            <span><strong>Payment Summary</strong></span>
+            <span>Item Total: <strong>599 Rs.</strong></span>
+        </div>
+
+        <div class="button-container">
+            <button>BOOK OTHER SERVICE</button>
+        </div>
+    </div>
+</body>
+</html>
