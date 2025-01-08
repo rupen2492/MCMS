@@ -1,69 +1,105 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="resources/css/main.css"> 
-  <title>MCMS</title>
+  <title>MCMS Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="resources/css/main.css">
+  <style>
+   
+
+  </style>
 </head>
 <body>
-  <div class="container">
   <!-- Header -->
-  <header class="header">
-    <div class="logo">
-      <img src="resources/images/mcmslogo.jpg" alt="Logo">
-    </div>
+  <div class="header">
+    <img src="resources/images/mcmslogo.jpg" alt="MCMS Logo">
     <div class="profile">
-      <img src="resources/images/profile.png" alt="User Profile">
+      <img src="resources/images/profile.png" alt="User Avatar">
       <span>Rupen</span>
     </div>
-  </header>
-
-
-<div class="col-md-12">
-  <div class="col-md-4">
-    <section class="services">
-      <div class="service">
-        <img src="resources/images/service.png" alt="Service">
-        <span>Service</span>
-      </div>
-
   </div>
 
-  <div class="col-md-4">
-    <section class="services">
-      <div class="service">
-        <img src="resources/images/repair.png" alt="Repair">
-        <span>Repair</span>
+  <!-- Services -->
+  <div class="container services">
+    <div class="row row-cols-2 row-cols-md-3 g-3">
+      <div class="col">
+        <div class="service-icon">
+          <img src="resources/images/service.png" alt="Service">
+          <p>Service</p>
+        </div>
       </div>
-
+      <div class="col">
+        <div class="service-icon">
+          <img src="resources/images/repair.png" alt="Repair">
+          <p>Repair</p>
+        </div>
+      </div>    
+      
+    </div>
   </div>
- 
-</div>
 
-
-
-  <!-- Services Section -->
-</section>
+  <div class="container my-4">
+    <h4 class=>Details</h4>
+    <hr>
+    <!-- Service Package -->
+    <div class="row align-items-center mb-4">
+      <div class="col-12 col-md-4">
+        <h6>Select Quantity</h6>
+      </div>
+      <div class="col-12 col-md-4 d-flex align-items-center">
+        <button class="btn btn-primary">-</button>
+        <span class="mx-2">1</span>
+        <button class="btn btn-primary">+</button>
+      </div>
+    </div>
+    
+    <!-- Scheduled and Open Service -->
+    <div class="row mb-4">
+      <div class="col-12 col-md-4">
+        <label>Select Date</label>
+        <input type="date" class="form-control">
+      </div>
+      <div class="col-12 col-md-4">
+        <label>Select Time</label>
+        <input type="time" class="form-control">
+      </div>
+      <div class="col-12 col-md-4 mt-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="openService">
+          <label class="form-check-label" for="openService">Book For Others</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="scheduledService">
+            <label class="form-check-label" for="scheduledService">Book For Myself</label>
+          </div>
+      </div>
+    </div>
+    
+    <!-- Terms and Buttons -->
+    <div class="row">
+      <div class="col-12">
+        <a href="#"><p class="text-muted">T&C. Applied.</p></a>
+      </div>
+      <div class="col-6">
+        <button class="btn w-100" style="background-color: #042e6e; color: white;">Add Service</button>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-info w-100" style="color: white;">Book Service</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
-  <footer class="footer">
-    <a href="#home">HOME</a>
-    <a href="#services">MY SERVICES</a>
-    <a href="#cart">CART</a>
-  </footer>
-</div>
-</body>
-</html>
-
+  <div class="footer">
+    <a href="#">Home</a>
+    <a href="#">My Services</a>
+    <a href="#">Cart</a>
   </div>
 
-  <!-- Footer -->
- 
-</div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
