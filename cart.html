@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Form with Cart Management</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="resources/css/main.css">
+
+</head>
+<body>
+<!--Header Starts-->
+    <div class="header">
+        <a href="index.html">
+        <img src="resources/images/mcmslogo.jpg" alt="MCMS Logo"></a>
+        <div class="profile">
+          <img src="resources/images/profile.png" alt="User Avatar">
+          <button class="btn btn-link text-dark text-decoration-none dropdown-toggle d-flex align-items-center" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="me-2 fw-bold">Rupen</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="login.html">Logout</a></li>
+          </ul>
+         
+         
+        </div>
+      </div>
+
+  <div class="container my-5">
+    <div class="row g-4">
+      <!-- Service Summary -->
+      <div class="col-lg-8">
+        <div class="card order-summary">
+            <h5 class="mb-4">Service Summary</h5>
+            <hr>
+            <div class="product" data-price="230.49">
+              <img src="resources/images/aircond.png" alt="Air Condition">
+              <div class="product-details">
+                <h6>Air Condition</h6>
+                <p>Repair</p>
+              </div>
+              <div>
+                <h6 class="product-price">Rs.230.49</h6>
+                <div class="col-12 col-md-4 d-flex align-items-center">
+                <div class="input-group">
+                  <button class="btn btn-outline-secondary btn-sm minus-btn">-</button>
+                  <input type="text" class="form-control text-center quantity-input" value="1">
+                  <button class="btn btn-outline-secondary btn-sm plus-btn">+</button>
+                </div>
+            </div>
+              </div>
+              <i class="bi bi-trash remove-icon"></i>
+            </div>
+            <div class="product" data-price="630.20">
+              <img src="resources/images/geyser.png" alt="Geyser">
+              <div class="product-details">
+                <h6>Geyser</h6>
+                <p>Service</p>
+              </div>
+              <div>
+                <h6 class="product-price">Rs.630.20</h6>
+                <div class="input-group">
+                  <button class="btn btn-outline-secondary btn-sm minus-btn">-</button>
+                  <input type="text" class="form-control text-center quantity-input" value="2">
+                  <button class="btn btn-outline-secondary btn-sm plus-btn">+</button>
+                </div>
+              </div>
+              <i class="bi bi-trash remove-icon"></i>
+            </div>
+            <div class="product" data-price="330.00">
+              <img src="resources/images/laundry.png" alt="Washing">
+              <div class="product-details">
+                <h6>Washing Machine</h6>
+                <p>Repair</p>
+              </div>
+              <div>
+                <h6 class="product-price">Rs.330.00</h6>
+                <div class="input-group">
+                  <button class="btn btn-outline-secondary btn-sm minus-btn">-</button>
+                  <input type="text" class="form-control text-center quantity-input" value="1">
+                  <button class="btn btn-outline-secondary btn-sm plus-btn">+</button>
+                </div>
+              </div>
+              <i class="bi bi-trash remove-icon"></i>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+              <h6>Total</h6>
+              <h6 id="total-price">Rs.1250.32</h6>
+            </div>
+          </div>
+          <a href="thankyou.html">
+          <button class="btn w-100 mt-4" style="background-color: #042e6e; color: white;">Book Service</button></a>
+      </div>
+
+      <!-- Address Information -->
+      <div class="col-lg-4">
+        <div class="card">
+            <h5 class="mb-4">Address Information</h5>
+            <hr>
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" value="Bryan Cranston">
+                </div>
+                <div class="col-md-6">
+                  <label for="mobile" class="form-label">Mobile Number</label>
+                  <input type="text" class="form-control" id="mobile" value="+1 424-236-3574">
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" value="thejon">
+                </div>
+                <div class="col-md-6">
+                  <label for="city" class="form-label">City</label>
+                  <input type="text" class="form-control" id="city" value="Hawthorne">
+                </div>
+                <div class="col-md-6">
+                  <label for="state" class="form-label">State</label>
+                  <input type="text" class="form-control" id="state" value="California">
+                </div>
+                <div class="col-md-6">
+                  <label for="zip" class="form-label">ZIP</label>
+                  <input type="text" class="form-control" id="zip" value="90250">
+                </div>
+                <div class="col-12">
+                  <label for="address" class="form-label">Address</label>
+                  <input type="text" class="form-control" id="address" value="4796 Libby Street">
+                </div>
+              </div>
+  
+              <div class="form-check form-switch mt-4">
+                <input class="form-check-input" type="checkbox" id="scheduleDelivery" >
+                <label class="form-check-label" for="scheduleDelivery">Book For Others</label>
+              </div>
+            </form>
+          </div>
+
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('.plus-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const input = button.previousElementSibling;
+        const quantity = parseInt(input.value);
+        input.value = quantity + 1;
+        updateTotal();
+      });
+    });
+
+    document.querySelectorAll('.minus-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const input = button.nextElementSibling;
+        const quantity = parseInt(input.value);
+        if (quantity > 1) {
+          input.value = quantity - 1;
+          updateTotal();
+        }
+      });
+    });
+
+    document.querySelectorAll('.remove-icon').forEach(icon => {
+      icon.addEventListener('click', () => {
+        const product = icon.closest('.product');
+        product.remove();
+        updateTotal();
+      });
+    });
+
+    function updateTotal() {
+      let total = 0;
+      document.querySelectorAll('.product').forEach(product => {
+        const price = parseFloat(product.getAttribute('data-price'));
+        const quantity = parseInt(product.querySelector('.quantity-input').value);
+        total += price * quantity;
+      });
+      document.getElementById('total-price').innerText = `$${total.toFixed(2)}`;
+    }
+  </script>
+
+   <!-- Footer -->
+   <div class="footer">
+    <a href="index.html">Home</a>
+    <a href="bookings.html">My Services</a>
+    <a href="cart.html">Cart</a>
+  </div>
+</body>
+</html>

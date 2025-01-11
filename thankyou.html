@@ -1,103 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-    <link href="./css/main.css" rel="stylesheet" />
-    <title>My Country My Services</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #003366;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            box-sizing: border-box;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-            background-color: #002855;
-            padding: 20px;
-            border-radius: 10px;
-            box-sizing: border-box;
-        }
-
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .details {
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .details span {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .summary {
-            margin-top: 20px;
-        }
-
-        .button-container {
-            margin-top: 30px;
-        }
-
-        .button-container button {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-            border-radius: 5px;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 20px;
-            }
-            .details span {
-                font-size: 12px;
-            }
-            .button-container button {
-                font-size: 14px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="">
-        <h1>Thank You!</h1>
-        <p>Your booking has been confirmed for AC Service with Booking Id <strong>12456578</strong>.</p>
-        
-        <div class="details">
-            <span><strong>Customer Details</strong></span>
-            <span>Mobile Number</span>
-            <span>+91-9874563210 (Rupen)</span>
-        </div>
-
-        <div class="summary">
-            <span><strong>Payment Summary</strong></span>
-            <span>Item Total: <strong>599 Rs.</strong></span>
-        </div>
-
-        <div class="button-container">
-            <button>BOOK OTHER SERVICE</button>
-        </div>
+  <div class="container vh-100 d-flex flex-column justify-content-center align-items-center">
+    <!-- Thank You Message -->
+    <div class="text-center">
+      <img src="resources/images/success.png" alt="Success" class="mb-4" style="width: 150px; height: 150px;">
+      <h1 class="fw-bold" style="color:#042e6e">Thank You!</h1>
+      <p class="mt-2">Your service booking has been confirmed.</p>
     </div>
+    <!-- Booking Details -->
+    <div class="card shadow mt-3 p-4 text-center" style="max-width: 400px; width: 100%;">
+      <h5 class="fw-bold">Booking ID</h5>
+      <p class="text-success fs-4 fw-bold">#12345ABC</p>
+      <p class="text-muted">Keep this ID for future reference.</p>
+    </div>
+    <!-- Buttons -->
+    <div class="mt-4 text-center">
+      <a href="index.html" class="btn btn-primary me-2" style="background-color: #042e6e; color:white;">Go to Home</a>
+      <a href="bookings.html" class="btn btn-outline-primary">View My Bookings</a>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

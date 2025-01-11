@@ -15,10 +15,20 @@
 <body>
   <!-- Header -->
   <div class="header">
-    <img src="resources/images/mcmslogo.jpg" alt="MCMS Logo">
+    <a href="index.html">
+    <img src="resources/images/mcmslogo.jpg" alt="MCMS Logo"></a>
     <div class="profile">
       <img src="resources/images/profile.png" alt="User Avatar">
-      <span>Rupen</span>
+      <button class="btn btn-link text-dark text-decoration-none dropdown-toggle d-flex align-items-center" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="me-2 fw-bold">Rupen</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+        <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="login.html">Logout</a></li>
+      </ul>
+     
+     
     </div>
   </div>
 
@@ -50,9 +60,11 @@
         <h6>Select Quantity</h6>
       </div>
       <div class="col-12 col-md-4 d-flex align-items-center">
-        <button class="btn btn-primary">-</button>
-        <span class="mx-2">1</span>
-        <button class="btn btn-primary">+</button>
+        <div class="input-group">
+          <button class="btn btn-outline-secondary btn-sm minus-btn">-</button>
+          <input type="text" class="form-control text-center quantity-input" value="2">
+          <button class="btn btn-outline-secondary btn-sm plus-btn">+</button>
+        </div>
       </div>
     </div>
     
@@ -84,22 +96,88 @@
         <a href="#"><p class="text-muted">T&C. Applied.</p></a>
       </div>
       <div class="col-6">
-        <button class="btn w-100" style="background-color: #042e6e; color: white;">Add Service</button>
+        <button id="addToCartBtn" class="btn w-100" style="background-color: #042e6e; color: white;">Add Service</button>
+        <div id="alertContainer" class="mt-3"></div>
       </div>
+      
       <div class="col-6">
-        <button class="btn btn-info w-100" style="color: white;">Book Service</button>
+        <a href="cart.html">
+        <button class="btn btn-info w-100" style="color: white;">Book Service</button></a>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
   <div class="footer">
-    <a href="#">Home</a>
-    <a href="#">My Services</a>
-    <a href="#">Cart</a>
+    <a href="index.html">Home</a>
+    <a href="bookings.html">My Services</a>
+    <a href="cart.html">Cart</a>
   </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    const alertContainer = document.getElementById('alertContainer');
+
+    addToCartBtn.addEventListener('click', () => {
+      // Create alert element
+      const alert = document.createElement('div');
+      alert.className = 'alert alert-success alert-dismissible fade show';
+      alert.role = 'alert';
+      alert.innerHTML = `
+        Service added to cart!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      `;
+
+      // Append alert to the container
+      alertContainer.appendChild(alert);
+
+      // Automatically remove the alert after 3 seconds
+      setTimeout(() => {
+        alert.classList.remove('show');
+        alert.classList.add('hide');
+        alert.addEventListener('transitionend', () => alert.remove());
+      }, 3000);
+    });
+
+    document.querySelectorAll('.plus-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const input = button.previousElementSibling;
+        const quantity = parseInt(input.value);
+        input.value = quantity + 1;
+        updateTotal();
+      });
+    });
+
+    document.querySelectorAll('.minus-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const input = button.nextElementSibling;
+        const quantity = parseInt(input.value);
+        if (quantity > 1) {
+          input.value = quantity - 1;
+          updateTotal();
+        }
+      });
+    });
+
+    document.querySelectorAll('.remove-icon').forEach(icon => {
+      icon.addEventListener('click', () => {
+        const product = icon.closest('.product');
+        product.remove();
+        updateTotal();
+      });
+    });
+
+    function updateTotal() {
+      let total = 0;
+      document.querySelectorAll('.product').forEach(product => {
+        const price = parseFloat(product.getAttribute('data-price'));
+        const quantity = parseInt(product.querySelector('.quantity-input').value);
+        total += price * quantity;
+      });
+      document.getElementById('total-price').innerText = `$${total.toFixed(2)}`;
+    }
+  </script>
 </body>
 </html>

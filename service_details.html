@@ -1,191 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Details</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #003366;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCMS Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="resources/css/main.css">
+  <style>
+   
 
-        .header {
-            text-align: left;
-            width: 100%;
-            max-width: 400px;
-            margin-bottom: 20px;
-        }
-
-        .header span {
-            display: block;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .content {
-            width: 100%;
-            max-width: 400px;
-            background-color: #002855;
-            padding: 20px;
-            border-radius: 10px;
-            box-sizing: border-box;
-        }
-
-        .content span {
-            display: block;
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
-
-        .service-package {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .service-package button {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .checkbox-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .checkbox-container label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .checkbox-container input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: #00bfff;
-        }
-
-        .date-time {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .date-time span {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .date-time span svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .footer button {
-            flex: 1;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .footer .add-service {
-            background-color: #00bfff;
-            color: white;
-        }
-
-        .footer .book-service {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        @media (max-width: 480px) {
-            .header span {
-                font-size: 16px;
-            }
-
-            .content span {
-                font-size: 14px;
-            }
-
-            .footer button {
-                font-size: 14px;
-            }
-        }
-    </style>
+  </style>
 </head>
 <body>
-    <div class="header">
-        <span>Hi Rupen,</span>
-        <span>Order Details</span>
+  <!-- Header -->
+  <div class="header">
+    <a href="index.html">
+    <img src="resources/images/mcmslogo.jpg" alt="MCMS Logo"></a>
+    <div class="profile">
+      <img src="resources/images/profile.png" alt="User Avatar">
+      <button class="btn btn-link text-dark text-decoration-none dropdown-toggle d-flex align-items-center" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="me-2 fw-bold">Rupen</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+        <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="login.html">Logout</a></li>
+      </ul>
+     
+     
     </div>
+  </div>
 
-    <div class="">
-        <span>Service Package</span>
-        <div class="service-package">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
-        </div>
+  <!-- Services -->
+ 
 
-        <div class="checkbox-container">
-            <label>
-                <input type="checkbox">
-                Scheduled Service
-            </label>
-            <label>
-                <input type="checkbox">
-                Open Service
-            </label>
-        </div>
+  <!-- Footer -->
+  <div class="footer">
+    <a href="index.html">Home</a>
+    <a href="bookings.html">My Services</a>
+    <a href="cart.html">Cart</a>
+  </div>
 
-        <div class="date-time">
-            <span>
-                Select Date
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M3 4a2 2 0 012-2h1V0h2v2h8V0h2v2h1a2 2 0 012 2v16a2 2 0 01-2 2H5a2 2 0 01-2-2V4zm2 2v14h14V6H5zm2 4h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"/></svg>
-            </span>
-            <span>
-                Select Time
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 1a11 11 0 100 22 11 11 0 000-22zm0 2a9 9 0 110 18 9 9 0 010-18zm-.5 3v7.25l6.5 3.75.75-1.3-5.75-3.3V6h-1.5z"/></svg>
-            </span>
-        </div>
-
-        <span>T&C. Applied.</span>
-    </div>
-
-    <div class="footer">
-        <a href="service_confirmation.html"><button class="add-service">ADD SERVICE</button></a>
-        <button class="book-service">BOOK SERVICE</button>
-    </div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

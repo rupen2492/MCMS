@@ -19,7 +19,16 @@
     <img src="resources/images/mcmslogo.jpg" alt="MCMS Logo"></a>
     <div class="profile">
       <img src="resources/images/profile.png" alt="User Avatar">
-      <span>Rupen</span>
+      <button class="btn btn-link text-dark text-decoration-none dropdown-toggle d-flex align-items-center" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="me-2 fw-bold">Rupen</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+        <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="login.html">Logout</a></li>
+      </ul>
+     
+     
     </div>
   </div>
 
@@ -79,9 +88,9 @@
 
   <!-- Footer -->
   <div class="footer">
-    <a href="#">Home</a>
-    <a href="#">My Services</a>
-    <a href="#">Cart</a>
+    <a href="index.html">Home</a>
+    <a href="bookings.html">My Services</a>
+    <a href="cart.html">Cart</a>
   </div>
 
   <!-- Bootstrap JS -->
