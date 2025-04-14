@@ -3,46 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MCMS Dashboard</title>
+  <title>MCMS Register</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="resources/css/main.css">
   <style>
-   
+    body {
+      background-color: #d3d7df;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
 
+    .register-container {
+      background-color: #f4f4f4;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .register-container .logo img {
+      max-width: 150px;
+    }
+
+    .form-control {
+      border-radius: 20px;
+    }
+
+    .btn-primary {
+      background-color: #00bfff;
+      border: none;
+      border-radius: 20px;
+    }
+
+    .btn-primary:hover {
+      background-color: #008cba;
+    }
+
+    .footer {
+      background-color: #f4f4f4;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .footer a {
+      text-decoration: none;
+      color: #042E6E;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      color: #2563eb;
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <div class="header">
-    <a href="index.html">
-    <img src="resources/images/mcmslogo.jpg" alt="MCMS Logo"></a>
-    <div class="profile">
-      <img src="resources/images/profile.png" alt="User Avatar">
-      <button class="btn btn-link text-dark text-decoration-none dropdown-toggle d-flex align-items-center" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        <span class="me-2 fw-bold">Rupen</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-        <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item text-danger" href="login.html">Logout</a></li>
-      </ul>
-     
-     
+  <div class="register-container">
+    <div class="logo text-center">
+      <img src="resources/images/mcmslogo.jpg" alt="MCMS Logo">
+      <h1>Register</h1>
+      <p>Register Yourself Here</p>
     </div>
+    <form id="registerForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+        <div id="nameError" class="text-danger mt-1"></div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter Email">
+        <div id="emailError" class="text-danger mt-1"></div>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number">
+        <div id="phoneError" class="text-danger mt-1"></div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter Password">
+        <div id="passwordError" class="text-danger mt-1"></div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 mb-3">REGISTER</button>
+      <div class="text-center">
+        <p>Already Have an Account? <a href="login.html">Login</a></p>
+      </div>
+    </form>
   </div>
 
-  <!-- Services -->
- 
-
-  <!-- Footer -->
   <div class="footer">
-    <a href="index.html">Home</a>
-    <a href="bookings.html">My Services</a>
-    <a href="cart.html">Cart</a>
+    <a href="index.html">Return To Home</a>
   </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Get form elements
+    const registerForm = document.getElementById('registerForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const passwordInput = document.getElementById('password');
+
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const phoneError = document.getElementById('phoneError');
+    const passwordError = document.getElementById('passwordError');
+
+    // Real-time validation
+    nameInput.addEventListener('input', validateName);
+    emailInput.addEventListener('input', validateEmail);
+    phoneInput.addEventListener('input', validatePhone);
+    passwordInput.addEventListener('input', validatePassword);
+
+    registerForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Validate all fields
+      const isNameValid = validateName();
+      const isEmailValid = validateEmail();
+      const isPhoneValid = validatePhone();
+      const isPasswordValid = validatePassword();
+
+      // Submit form if all validations pass
+      if (isNameValid && isEmailValid && isPhoneValid && isPasswordValid) {
+        alert('Registration successful!');
+        // Redirect or further processing
+        // window.location.href = 'dashboard.html';
+      }
+    });
+
+    // Name validation
+    function validateName() {
+      const name = nameInput.value.trim();
+      nameError.textContent = '';
+      if (name === '') {
+        nameError.textContent = 'Name is required.';
+        return false;
+      } else if (!/^[A-Za-z\s]+$/.test(name)) {
+        nameError.textContent = 'Name can only contain alphabets and spaces.';
+        return false;
+      }
+      return true;
+    }
+
+    // Email validation
+    function validateEmail() {
+      const email = emailInput.value.trim();
+      emailError.textContent = '';
+      if (email === '') {
+        emailError.textContent = 'Email is required.';
+        return false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailError.textContent = 'Enter a valid email address.';
+        return false;
+      }
+      return true;
+    }
+
+    // Phone validation
+    function validatePhone() {
+      const phone = phoneInput.value.trim();
+      phoneError.textContent = '';
+      if (phone === '') {
+        phoneError.textContent = 'Phone number is required.';
+        return false;
+      } else if (!/^\d{10,15}$/.test(phone)) {
+        phoneError.textContent = 'Phone number must be 10-15 digits.';
+        return false;
+      }
+      return true;
+    }
+
+    // Password validation
+    function validatePassword() {
+      const password = passwordInput.value.trim();
+      passwordError.textContent = '';
+      if (password === '') {
+        passwordError.textContent = 'Password is required.';
+        return false;
+      } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
+        passwordError.textContent =
+          'Password must be at least 8 characters long and include uppercase, lowercase, a number, and a special character.';
+        return false;
+      }
+      return true;
+    }
+  </script>
 </body>
 </html>

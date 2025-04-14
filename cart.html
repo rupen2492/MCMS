@@ -37,24 +37,6 @@
         <div class="card order-summary">
             <h5 class="mb-4">Service Summary</h5>
             <hr>
-            <div class="product" data-price="230.49">
-              <img src="resources/images/aircond.png" alt="Air Condition">
-              <div class="product-details">
-                <h6>Air Condition</h6>
-                <p>Repair</p>
-              </div>
-              <div>
-                <h6 class="product-price">Rs.230.49</h6>
-                <div class="col-12 col-md-4 d-flex align-items-center">
-                <div class="input-group">
-                  <button class="btn btn-outline-secondary btn-sm minus-btn">-</button>
-                  <input type="text" class="form-control text-center quantity-input" value="1">
-                  <button class="btn btn-outline-secondary btn-sm plus-btn">+</button>
-                </div>
-            </div>
-              </div>
-              <i class="bi bi-trash remove-icon"></i>
-            </div>
             <div class="product" data-price="630.20">
               <img src="resources/images/geyser.png" alt="Geyser">
               <div class="product-details">
@@ -184,7 +166,7 @@
         const quantity = parseInt(product.querySelector('.quantity-input').value);
         total += price * quantity;
       });
-      document.getElementById('total-price').innerText = `$${total.toFixed(2)}`;
+      document.getElementById('total-price').innerText = `Rs.${total.toFixed(2)}`;
     }
   </script>
 

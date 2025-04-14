@@ -26,27 +26,8 @@
       max-width: 400px;
     }
 
-    .login-container .logo {
-      display: block;
-      margin: 0 auto 20px;
-      text-align: center;
-    }
-
     .login-container .logo img {
       max-width: 150px;
-    }
-
-    .login-container h1 {
-      font-size: 24px;
-      text-align: center;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .login-container p {
-      font-size: 16px;
-      text-align: center;
-      color: #666;
     }
 
     .form-control {
@@ -73,13 +54,6 @@
       background-color: #005b4f;
     }
 
-    .forgot-password,
-    .register {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
     .forgot-password a,
     .register a {
       color: #0056b3;
@@ -90,106 +64,110 @@
     .register a:hover {
       text-decoration: underline;
     }
-    .footer {
-  background-color: #f4f4f4;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height:70px;
-  display: flex;
-  float: initial;
-  justify-content: space-around;
-}
-
-.footer a {
-  text-decoration: none;
-  color: #042E6E;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.footer a:hover {
-color: #2563eb; /* Blue text */
-}
   </style>
 </head>
 <body>
   <div class="login-container">
-    <div class="logo">
+    <div class="logo text-center">
       <img src="resources/images/mcmslogo.jpg" alt="MCMS Logo">
       <h1>LOGIN</h1>
       <p>Enter Your Credentials</p>
     </div>
-    <form id="loginform">
+    <form id="loginForm">
       <div class="mb-3">
-        <label for="username" id="email" class="form-label">
-          <i class="bi bi-person"></i> Username
-        </label>
-        <input type="text" class="form-control" id="username" placeholder="Username">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        <div id="emailError" class="text-danger mt-1"></div>
       </div>
       <div class="mb-3">
-        <label for="password" id="password" class="form-label">
-          <i class="bi bi-lock"></i> Password
-        </label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
-        <div class="forgot-password">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+        <div id="passwordError" class="text-danger mt-1"></div>
+        <div class="forgot-password text-end">
           <a href="forgotpassword.html">Forgot Password?</a>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
-      <div class="register">
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+      <div class="register text-center mt-3">
         <p>Don't have an account? <a href="register.html">Register here.</a></p>
       </div>
-      <button type="button" class="btn btn-secondary w-100">LOGIN AS GUEST</button>
+      <button type="button" class="btn btn-secondary w-100 mt-2">LOGIN AS GUEST</button>
     </form>
   </div>
 
-  <div class="footer">
-    <a href="index.html">Return To Home</a>
-  </div>
-
   <!-- Bootstrap JS -->
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Get form elements
     const loginForm = document.getElementById('loginForm');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
 
-    loginForm.addEventListener('submit', function (e) {
-      e.preventDefault(); // Prevent form submission
+    // Real-time validation
+    emailInput.addEventListener('input', validateEmailField);
+    passwordInput.addEventListener('input', validatePasswordField);
 
-      let isValid = true;
+    loginForm.addEventListener('submit', function (event) {
+      // Prevent form submission
+      event.preventDefault();
 
-      // Validate Email
-      if (!emailInput.value || !validateEmail(emailInput.value)) {
-        emailInput.classList.add('is-invalid');
-        isValid = false;
-      } else {
-        emailInput.classList.remove('is-invalid');
-        emailInput.classList.add('is-valid');
-      }
+      // Validate fields
+      const isEmailValid = validateEmailField();
+      const isPasswordValid = validatePasswordField();
 
-      // Validate Password
-      if (!passwordInput.value) {
-        passwordInput.classList.add('is-invalid');
-        isValid = false;
-      } else {
-        passwordInput.classList.remove('is-invalid');
-        passwordInput.classList.add('is-valid');
-      }
-
-      // If form is valid, display success message
-      if (isValid) {
+      // If all validations pass
+      if (isEmailValid && isPasswordValid) {
         alert('Login successful!');
+        // Redirect or further processing
+        // window.location.href = 'dashboard.html';
       }
     });
 
-    // Email Validation Function
-    function validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
+    // Validate Email Field
+    function validateEmailField() {
+      const email = emailInput.value.trim();
+      emailError.textContent = ''; // Clear previous error
+      if (email === '') {
+        emailError.textContent = 'Email is required.';
+        return false;
+      } else if (!isValidEmail(email)) {
+        emailError.textContent = 'Please enter a valid email address.';
+        return false;
+      }
+      return true;
+    }
+
+    // Validate Password Field
+    function validatePasswordField() {
+      const password = passwordInput.value.trim();
+      passwordError.textContent = ''; // Clear previous error
+      if (password === '') {
+        passwordError.textContent = 'Password is required.';
+        return false;
+      } else if (password.length < 8) {
+        passwordError.textContent = 'Password must be at least 8 characters long.';
+        return false;
+      } else if (!isStrongPassword(password)) {
+        passwordError.textContent =
+          'Password must include uppercase, lowercase, number, and special character.';
+        return false;
+      }
+      return true;
+    }
+
+    // Email validation regex
+    function isValidEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    }
+
+    // Password strength regex
+    function isStrongPassword(password) {
+      const passwordPattern =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      return passwordPattern.test(password);
     }
   </script>
 </body>
